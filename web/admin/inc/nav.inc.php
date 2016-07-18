@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo ADM_URL_PATH; ?>/blog.php">日志管理</a></li>
-                <li><a href="<?php echo ADM_URL_PATH; ?>/admin.php">文章管理</a></li>
+                <li><a href="<?php echo ADM_URL_PATH; ?>/admin.php">管理员管理</a></li>
                 <li><a href="<?php echo ADM_URL_PATH; ?>/settings.php">基本设置</a></li>
             </ul>
 

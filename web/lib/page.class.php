@@ -14,7 +14,7 @@ class page{
         $html = '';
         for($i = 1;$i <= $this->maxPage; $i ++){
             if($this->p == $i){
-                $html .= "<li class='active'><span aria-hidden='true' style='color:red;'>{$i}</span></li>";
+                $html .= "<li class='active'><span aria-hidden='true'    style='color:red;'>{$i}</span></li>";
                 
             }else{
                 $html .= "<li><span aria-hidden='true'><a href='{$this->file}?p=$i'>{$i}</a></span></li>";

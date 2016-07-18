@@ -24,7 +24,7 @@ if($input->get('do') == 'save'){
     $bid        = (int)trim($input->post('bid'));
     $title      = trim($input->post('title'));
     $author     = trim($input->post('author'));
-    $content    = trim($input->post('content'));
+    $content    = htmlentities(trim($input->post('content',false)));
     $nowTime     = time();
     
     if(empty($title) || empty($author) || empty($content)){
@@ -49,6 +49,11 @@ if($input->get('do') == 'save'){
 <html lang="cn-CN">
     <head>
         <?php include(ADM_PATH . "/inc/header.inc.php"); ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo URL_PATH?>/public/simditor/styles/simditor.css" />
+        <script type="text/javascript" src="<?php echo URL_PATH?>/public/simditor/scripts/module.js"></script>
+        <script type="text/javascript" src="<?php echo URL_PATH?>/public/simditor/scripts/hotkeys.js"></script>
+        <script type="text/javascript" src="<?php echo URL_PATH?>/public/simditor/scripts/uploader.js"></script>
+        <script type="text/javascript" src="<?php echo URL_PATH?>/public/simditor/scripts/simditor.js"></script>
     </head>
 
     <body>
@@ -81,7 +86,38 @@ if($input->get('do') == 'save'){
                             <div class="form-group">
                                 <label for="content" class="col-sm-2 control-label">正文</label>
                                 <div class="col-sm-10">
-                                    <textarea name="content" id="content" style="width:100%;height:400px"><?php echo $item['content']?></textarea>
+                                    <textarea name="content" id="content"><?php echo $item['content']?></textarea>
+                                    <script>
+                                        var editor = new Simditor({
+                                            textarea: $('#content'),
+                                            upload: {
+                                                url:'<?php echo ADM_URL_PATH ."/upload.php";?>',
+                                                fileKey:'file1'
+                                            },
+                                            placeholder:"请输入内容",
+                                            toolbar:[
+                                                'title',
+                                                'bold',
+                                                'italic',
+                                                'underline',
+                                                'strikethrough',
+                                                'fontScale',
+                                                'color',
+                                                'ol'    ,       
+                                                'ul'     ,        
+                                                'blockquote',
+                                                'code'       ,   
+                                                'table',
+                                                'link',
+                                                'image',
+                                                'hr'    ,       
+                                                'indent',
+                                                'outdent',
+                                                'alignment'
+                                            ]
+                                            
+                                        });
+                                    </script>
                                 </div>
                             </div>
                             <div class="form-group">

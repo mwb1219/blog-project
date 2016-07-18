@@ -1,13 +1,15 @@
 <?php
 class input {
-    function post($key){
+    function post($key, $filter=true){
         if(isset($_POST[$key])){
             $value = $_POST[$key];
         }else{
             $value = NULL;
         }
-        $execValue = strip_tags($value);
-        return $execValue;
+        if($filter){
+            $value = strip_tags($value);
+        }
+        return $value;
     }
     
     function get($key){
