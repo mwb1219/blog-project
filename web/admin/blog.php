@@ -20,7 +20,7 @@ if($p < 1){
 }
 
 //每页显示数
-$blog_num   = 4; 
+$blog_num   = C('admin_blog_page'); 
 
 $offset = $blog_num * ($p-1);
 //总数据量

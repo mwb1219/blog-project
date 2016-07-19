@@ -11,6 +11,7 @@ define("ADM_URL_PATH", "http://blog.com/admin");
 
 include(APP_PATH . '/config.php');
 include(APP_PATH . '/lib/db.php');
+include(APP_PATH . '/lib/functions.php');
 $db = new db("127.0.0.1", 'root', '123', 'blog');
 //var_dump($db);
 include(APP_PATH . '/lib/input.class.php');
